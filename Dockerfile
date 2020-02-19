@@ -11,4 +11,4 @@ RUN curl -SL https://cdn.azul.com/zulu/bin/zulu8.28.0.1-jdk8.0.163-linux_x64.tar
 
 ENV JAVA_HOME /usr/local/lib/openjdk
 
-RUN ls /usr/local/lib/openjdk
+RUN /usr/local/lib/openjdk -version
