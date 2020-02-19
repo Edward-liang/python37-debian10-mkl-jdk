@@ -6,9 +6,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     curl
 
 RUN curl -O https://cdn.azul.com/zulu/bin/zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz
-RUN mkdir /usr/local/lib/openjdk && tar -zxvf zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz -C /usr/local/lib/openjdk && \
+RUN mkdir /usr/local/lib/openjdk && tar -zxf zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz -C /usr/local/lib/openjdk && \
     rm -f zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz
 
 ENV JAVA_HOME /usr/local/lib/openjdk
 
-RUN /usr/local/lib/openjdk -version
+RUN /usr/local/lib/openjdk/bin/java -version
