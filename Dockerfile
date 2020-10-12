@@ -1,4 +1,11 @@
 FROM registry.cn-hangzhou.aliyuncs.com/edward-liang/python37-debian10-mkl:v1.0.0
+
+ENV TZ='CST-8' \
+    LANG=zh_CN.UTF-8 \
+    LANGUAGE=zh_CN.UTF-8 \
+    LC_ALL=zh_CN.UTF-8 \
+    JAVA_HOME=/usr/local/lib/openjdk
+    
 # install gcc .etc. to prevent GPL license problem.
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
@@ -17,12 +24,6 @@ RUN apt-get update && \
     rm /bin/sh && \
     ln -s /bin/bash /bin/sh && \
     localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
-
-ENV TZ='CST-8' \
-    LANG=zh_CN.UTF-8 \
-    LANGUAGE=zh_CN.UTF-8 \
-    LC_ALL=zh_CN.UTF-8 \
-    JAVA_HOME=/usr/local/lib/openjdk
 
 RUN curl -O https://cdn.azul.com/zulu/bin/zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz && \
     tar -zxf zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz -C /usr/local/lib/ && \
