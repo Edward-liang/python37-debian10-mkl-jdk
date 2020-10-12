@@ -22,7 +22,7 @@ ENV TZ='CST-8' \
     LANG=zh_CN.UTF-8 \
     LANGUAGE=zh_CN.UTF-8 \
     LC_ALL=zh_CN.UTF-8 \
-    JAVA_HOME /usr/local/lib/openjdk
+    JAVA_HOME=/usr/local/lib/openjdk
 
 RUN curl -O https://cdn.azul.com/zulu/bin/zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz && \
     tar -zxf zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz -C /usr/local/lib/ && \
