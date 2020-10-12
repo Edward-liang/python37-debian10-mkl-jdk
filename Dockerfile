@@ -11,6 +11,7 @@ RUN apt-get update && \
     apt-get install --no-install-recommends -y \
         gcc \
         gcc-multilib \
+	libpq-dev \
         vim \
         curl \
         procps \
@@ -21,8 +22,9 @@ RUN apt-get update && \
     locale-gen zh_CN.UTF-8 &&\
     apt-get clean && \
     rm -r /var/lib/apt/lists/* && \
+    rm -r /var/cache/debconf/ && \    
     rm /bin/sh && \
-    ln -s /bin/bash /bin/sh && \
+    ln -s /bin/bash /bin/sh && \    
     localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
 
 RUN curl -O https://cdn.azul.com/zulu/bin/zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz && \
