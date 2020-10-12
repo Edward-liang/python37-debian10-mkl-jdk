@@ -7,8 +7,8 @@ RUN apt-get update && \
         vim \
         curl \
         procps \
-		cron \
-		perl \
+	cron \
+	perl \
         locales && \
     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     locale-gen zh_CN.UTF-8 &&\
