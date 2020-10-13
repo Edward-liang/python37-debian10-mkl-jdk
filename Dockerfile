@@ -31,3 +31,7 @@ ENV TZ='CST-8' \
     LANGUAGE=zh_CN.UTF-8 \
     LC_ALL=zh_CN.UTF-8 \
     JAVA_HOME=/usr/local/lib/openjdk
+
+COPY requirements.txt .
+RUN pip install -r requirements.txt &&\
+    rm requirements.txt
