@@ -6,7 +6,7 @@ RUN apt-get update && \
         gcc \
         gcc-multilib \
 	libpq-dev \
-        vi \
+        vim \
         curl \
         procps \
 	cron \
