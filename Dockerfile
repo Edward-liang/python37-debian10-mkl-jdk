@@ -13,12 +13,7 @@ RUN apt-get update && \
 	perl \
         locales && \
     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
-    locale-gen zh_CN.UTF-8 &&\
-    curl -O https://cdn.azul.com/zulu/bin/zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz && \
-    tar -zxf zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz -C /usr/local/lib/ && \
-    rm -f zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz && \
-    mv /usr/local/lib/zulu8.28.0.1-jdk8.0.163-linux_x64 /usr/local/lib/openjdk && \
-    apt-get autoremove --purge -y libgssapi-krb5-2 && \
+    locale-gen zh_CN.UTF-8 &&\    
     apt-get clean && \
     rm -r /var/lib/apt/lists/* && \
     rm -r /var/cache/debconf/ && \    
@@ -34,5 +29,10 @@ ENV TZ='CST-8' \
     JAVA_HOME=/usr/local/lib/openjdk
 
 COPY requirements.txt .
-RUN pip install -r requirements.txt &&\
-    rm requirements.txt
+RUN pip install -r requirements.txt && \
+    rm requirements.txt && \
+    curl -O https://cdn.azul.com/zulu/bin/zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz && \
+    tar -zxf zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz -C /usr/local/lib/ && \
+    rm -f zulu8.28.0.1-jdk8.0.163-linux_x64.tar.gz && \
+    mv /usr/local/lib/zulu8.28.0.1-jdk8.0.163-linux_x64 /usr/local/lib/openjdk && \
+    apt-get autoremove --purge -y libgssapi-krb5-2
