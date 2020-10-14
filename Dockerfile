@@ -14,7 +14,7 @@ RUN apt-get update && \
         locales && \
     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     locale-gen zh_CN.UTF-8 &&\
-    apt-get autoremove --purge libgssapi-krb5-2
+    apt-get autoremove --purge libgssapi-krb5-2 && \
     apt-get clean && \
     rm -r /var/lib/apt/lists/* && \
     rm -r /var/cache/debconf/ && \    
