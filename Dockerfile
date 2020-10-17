@@ -26,7 +26,7 @@ RUN apt-get update && \
     apt-get autoremove --purge -y libgssapi-krb5-2 && \
     apt-get clean && \
     rm -r /var/lib/apt/lists/* && \
-    rm -r /var/cache/debconf/ && \ 
+    rm -r /var/cache/debconf/
 
 ENV TZ='CST-8' \
     LANG=zh_CN.UTF-8 \
